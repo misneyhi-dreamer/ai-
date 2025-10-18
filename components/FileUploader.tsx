@@ -15,7 +15,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({ file, isLoading, err
     <div className="w-full text-center flex flex-col items-center justify-center">
         <label
             htmlFor="audio-upload"
-            className="w-full max-w-lg cursor-pointer bg-brand-primary border-2 border-dashed border-brand-border rounded-lg p-8 flex flex-col items-center justify-center hover:bg-gray-800 hover:border-brand-accent transition-colors"
+            className="w-full max-w-lg cursor-pointer bg-brand-primary border-2 border-dashed border-brand-border rounded-lg p-8 flex flex-col items-center justify-center hover:bg-gray-100 hover:border-brand-accent transition-colors"
         >
             <UploadIcon className="w-12 h-12 text-brand-text-secondary mb-4" />
             <span className="text-lg font-semibold text-brand-text">파일을 선택하거나 여기에 드래그하세요</span>
@@ -23,7 +23,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({ file, isLoading, err
             <input id="audio-upload" type="file" accept="audio/*,video/*" className="hidden" onChange={onFileChange} />
         </label>
 
-        {error && <p className="mt-4 text-red-400">{error}</p>}
+        {error && <p className="mt-4 text-red-500">{error}</p>}
         
         {file && (
             <div className="mt-6 p-4 bg-brand-primary rounded-md w-full max-w-lg flex items-center justify-between">
@@ -37,7 +37,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({ file, isLoading, err
         <button
             onClick={onProcess}
             disabled={!file || isLoading}
-            className="mt-8 px-8 py-3 bg-brand-accent text-white font-bold rounded-lg shadow-lg hover:bg-brand-accent-hover disabled:bg-brand-border disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 disabled:scale-100"
+            className="mt-8 px-8 py-3 bg-brand-accent text-white font-bold rounded-lg shadow-lg hover:bg-brand-accent-hover disabled:bg-brand-border disabled:text-gray-400 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 disabled:scale-100"
         >
             분석 시작하기
         </button>

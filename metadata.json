@@ -1,5 +1,5 @@
 {
   "name": "AI 회의록 요약기",
-  "description": "회의 MP3 파일을 업로드하면 AI가 한국어로 내용을 받아쓰고, 발언자별로 핵심 내용을 요약해줍니다.",
+  "description": "회의 MP3, 음성, 영상 파일을 업로드하면 AI가 한국어로 내용을 받아쓰고(STT), 발언자별로 핵심 내용을 요약해주는 AI 회의록 요약 서비스입니다.",
   "requestFramePermissions": []
 }

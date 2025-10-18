@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import type { MeetingAnalysis } from '../types';
 import { SpeakerIcon } from './icons/SpeakerIcon';
@@ -41,18 +40,26 @@ export const ResultView: React.FC<ResultViewProps> = ({ result, onReset }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Transcription Section */}
         <div className="bg-brand-primary rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-brand-text">회의록</h2>
-          <div className="prose prose-invert max-h-96 overflow-y-auto bg-gray-900 p-4 rounded-md border border-brand-border">
+          <h2 id="transcription-heading" className="text-2xl font-bold mb-4 text-brand-text">회의록</h2>
+          <div
+            role="region"
+            aria-labelledby="transcription-heading"
+            className="prose max-h-96 overflow-y-auto bg-gray-50 p-4 rounded-md border border-brand-border"
+          >
             <p className="text-brand-text-secondary whitespace-pre-wrap">{result.transcription}</p>
           </div>
         </div>
         
         {/* Summary Section */}
         <div className="bg-brand-primary rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-brand-text">요점 정리</h2>
-          <div className="space-y-4 max-h-96 overflow-y-auto">
+          <h2 id="summary-heading" className="text-2xl font-bold mb-4 text-brand-text">요점 정리</h2>
+          <div
+            role="region"
+            aria-labelledby="summary-heading"
+            className="space-y-4 max-h-96 overflow-y-auto"
+          >
             {result.summary.map((s, index) => (
-              <div key={index} className="p-4 bg-gray-900 rounded-md border border-brand-border">
+              <div key={index} className="p-4 bg-gray-50 rounded-md border border-brand-border">
                 <h3 className="flex items-center text-lg font-semibold text-brand-accent mb-2">
                   <SpeakerIcon className="w-5 h-5 mr-2" />
                   {s.speaker}
@@ -79,7 +86,7 @@ export const ResultView: React.FC<ResultViewProps> = ({ result, onReset }) => {
         </button>
         <button
           onClick={onReset}
-          className="flex items-center px-6 py-2 bg-brand-border text-brand-text font-semibold rounded-lg hover:bg-gray-600 transition-colors"
+          className="flex items-center px-6 py-2 bg-brand-border text-brand-text font-semibold rounded-lg hover:bg-gray-200 transition-colors"
         >
           <ResetIcon className="w-5 h-5 mr-2" />
           초기화

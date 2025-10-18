@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { MeetingAnalysis } from './types';
 import { analyzeMeetingAudio } from './services/geminiService';
 import { FileUploader } from './components/FileUploader';
@@ -10,6 +10,10 @@ const App: React.FC = () => {
   const [result, setResult] = useState<MeetingAnalysis | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = "AI 회의록 요약기 | 음성 및 영상 파일 자동 정리";
+  }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -81,13 +85,14 @@ const App: React.FC = () => {
       <main className="w-full max-w-4xl mx-auto">
         <header className="text-center mb-8">
             <h1 className="text-4xl sm:text-5xl font-bold text-brand-text mb-2">AI 회의록 요약기</h1>
-            <p className="text-lg text-brand-text-secondary">MP3 파일을 업로드하여 회의 내용을 자동으로 정리하세요.</p>
+            <p className="text-lg text-brand-text-secondary">음성 및 영상 파일을 업로드하여 회의 내용을 자동으로 정리하세요.</p>
         </header>
         <div className="bg-brand-secondary rounded-xl shadow-2xl p-6 sm:p-8 transition-all duration-300 min-h-[300px] flex items-center justify-center">
             {renderContent()}
         </div>
         <footer className="text-center mt-8 text-brand-text-secondary text-sm">
             <p>Powered by Google Gemini</p>
+            <p className="mt-2">Created by misneyhi@gmail.com</p>
         </footer>
       </main>
     </div>
